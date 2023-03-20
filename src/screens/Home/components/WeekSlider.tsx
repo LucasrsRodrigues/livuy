@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Box, HStack, ScrollView, Text, VStack } from "native-base";
+import {
+  Box,
+  HStack,
+  ScrollView,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "native-base";
 import PagerView from "react-native-pager-view";
 import { GLOBAL, VARIABLES } from "@themes/variables";
 
@@ -20,6 +27,9 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { getArrayDate } from "@utils/getArrayDate";
 
 export function WeekSlider() {
+  const fill = useColorModeValue(GLOBAL.grayscale_100, GLOBAL.white);
+  const color = useColorModeValue(GLOBAL.grayscale_100, GLOBAL.white);
+
   const [daysOfWeek, setDaysOfWeek] = useState<Array<Date>>([]);
 
   useEffect(() => {
@@ -31,13 +41,8 @@ export function WeekSlider() {
   return (
     <VStack space={2} mt={2}>
       <HStack paddingX={VARIABLES.paddingHorizontal}>
-        <CalendarIcon fill={GLOBAL.grayscale_100} />
-        <Text
-          fontSize={12}
-          fontWeight={500}
-          color={GLOBAL.grayscale_100}
-          ml={2}
-        >
+        <CalendarIcon fill={fill} />
+        <Text fontSize={12} fontWeight={500} color={color} ml={2}>
           {format(new Date(), "MMM dd, yyyy")}
         </Text>
       </HStack>
@@ -58,12 +63,7 @@ export function WeekSlider() {
               <Text fontSize={12} fontWeight={400} color={GLOBAL.grayscale_40}>
                 {txt}
               </Text>
-              <Text
-                fontSize={12}
-                fontWeight={500}
-                mt={1}
-                color={GLOBAL.grayscale_100}
-              >
+              <Text fontSize={12} fontWeight={500} mt={1} color={color}>
                 {format(item, "d")}
               </Text>
             </Box>

@@ -1,4 +1,10 @@
-import { HStack, StatusBar, Text, VStack } from "native-base";
+import {
+  HStack,
+  StatusBar,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "native-base";
 import { GLOBAL, VARIABLES } from "@themes/variables";
 
 import MenuIcon from "@assets/icons/menu.svg";
@@ -11,17 +17,13 @@ import { WeekSlider } from "../components/WeekSlider";
 export function Header() {
   const { top } = useSafeAreaInsets();
 
+  const bg = useColorModeValue(GLOBAL.white, GLOBAL.grayscale_100);
+  const color = useColorModeValue(GLOBAL.grayscale_100, GLOBAL.white);
+  const barStyle = useColorModeValue("dark-content", "light-content");
+
   return (
-    <VStack
-      _dark={{
-        bg: GLOBAL.grayscale_100,
-      }}
-      _light={{
-        bg: GLOBAL.white,
-      }}
-      pt={top}
-    >
-      <StatusBar barStyle="dark-content" />
+    <VStack bg={bg} pt={top}>
+      <StatusBar barStyle={barStyle} />
       <HStack
         paddingX={VARIABLES.paddingHorizontal}
         alignItems="center"
@@ -30,16 +32,7 @@ export function Header() {
       >
         <HStack alignItems="center" flex={1} space={4}>
           <IconButton icon={MenuIcon} />
-          <Text
-            fontSize={18}
-            fontWeight={600}
-            _light={{
-              color: GLOBAL.grayscale_100,
-            }}
-            _dark={{
-              color: GLOBAL.white,
-            }}
-          >
+          <Text fontSize={18} fontWeight={600} color={color}>
             Score Board
           </Text>
         </HStack>
