@@ -13,7 +13,9 @@ import {
   Poppins_800ExtraBold,
   Poppins_900Black,
 } from "@expo-google-fonts/poppins";
-import { BASETHEME } from "./src/theme";
+
+import Home from "./src/screens/Home";
+import { BASETHEME } from "@themes/index";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -35,9 +37,8 @@ export default function App() {
           <Spinner size="lg" color="#FF2882" />
         </Box>
       ) : (
-        <Text>App</Text>
+        <Home />
       )}
-      <Text>Hello world!</Text>
     </NativeBaseProvider>
   );
 }
