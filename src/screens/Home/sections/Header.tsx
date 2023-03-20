@@ -12,16 +12,34 @@ export function Header() {
   const { top } = useSafeAreaInsets();
 
   return (
-    <VStack bg="#ffffff" pt={top}>
+    <VStack
+      _dark={{
+        bg: GLOBAL.grayscale_100,
+      }}
+      _light={{
+        bg: GLOBAL.white,
+      }}
+      pt={top}
+    >
       <StatusBar barStyle="dark-content" />
       <HStack
         paddingX={VARIABLES.paddingHorizontal}
         alignItems="center"
         space={4}
+        py={2}
       >
         <HStack alignItems="center" flex={1} space={4}>
           <IconButton icon={MenuIcon} />
-          <Text fontSize={18} fontWeight={600} color={GLOBAL.grayscale_100}>
+          <Text
+            fontSize={18}
+            fontWeight={600}
+            _light={{
+              color: GLOBAL.grayscale_100,
+            }}
+            _dark={{
+              color: GLOBAL.white,
+            }}
+          >
             Score Board
           </Text>
         </HStack>
