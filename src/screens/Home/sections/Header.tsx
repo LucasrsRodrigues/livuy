@@ -13,8 +13,10 @@ import SearchNormalIcon from "@assets/icons/search-normal.svg";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { IconButton } from "@components/IconButton";
 import { WeekSlider } from "../components/WeekSlider";
+import { useDrawner } from "@hooks/Drawner.hook";
 
 export function Header() {
+  const { openMenu } = useDrawner();
   const { top } = useSafeAreaInsets();
 
   const bg = useColorModeValue(GLOBAL.white, GLOBAL.grayscale_100);
@@ -31,7 +33,8 @@ export function Header() {
         py={2}
       >
         <HStack alignItems="center" flex={1} space={4}>
-          <IconButton icon={MenuIcon} />
+          <IconButton icon={MenuIcon} onPress={openMenu} />
+
           <Text fontSize={18} fontWeight={600} color={color}>
             Score Board
           </Text>

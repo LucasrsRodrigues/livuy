@@ -1,5 +1,6 @@
 import { GLOBAL } from "@themes/variables";
 import {
+  IPressableProps,
   IconButton as NBIconButton,
   Pressable,
   useColorMode,
@@ -9,11 +10,11 @@ import {
 import MenuIcon from "@assets/icons/menu.svg";
 import { SvgProps } from "react-native-svg";
 
-interface IIconButtonProps {
+interface IIconButtonProps extends IPressableProps {
   icon: React.FC<SvgProps>;
 }
 
-export function IconButton({ icon: Icon }: IIconButtonProps) {
+export function IconButton({ icon: Icon, ...rest }: IIconButtonProps) {
   const fill = useColorModeValue(GLOBAL.grayscale_100, GLOBAL.white);
   const borderColor = useColorModeValue(GLOBAL.line, GLOBAL.line_dark);
 
@@ -26,6 +27,7 @@ export function IconButton({ icon: Icon }: IIconButtonProps) {
       rounded="full"
       alignItems="center"
       justifyContent="center"
+      {...rest}
     >
       <Icon fill={fill} />
     </Pressable>

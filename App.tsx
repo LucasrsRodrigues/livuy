@@ -16,6 +16,8 @@ import {
 
 import Home from "./src/screens/Home";
 import { BASETHEME } from "@themes/index";
+import { DrawnerMenu } from "@components/DrawnerMenu";
+import { DrawnerProvider } from "@hooks/Drawner.hook";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -37,7 +39,9 @@ export default function App() {
           <Spinner size="lg" color="#FF2882" />
         </Box>
       ) : (
-        <Home />
+        <DrawnerProvider>
+          <Home />
+        </DrawnerProvider>
       )}
     </NativeBaseProvider>
   );

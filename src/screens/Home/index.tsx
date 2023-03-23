@@ -1,7 +1,14 @@
-import { Box, Button, useColorMode, useColorModeValue } from "native-base";
+import {
+  Box,
+  Button,
+  Text,
+  useColorMode,
+  useColorModeValue,
+} from "native-base";
 import { GLOBAL } from "@themes/variables";
 
 import { Header, LiveMatch, TodayMatch } from "./sections";
+import { useDrawner } from "@hooks/Drawner.hook";
 
 export default function Home() {
   const { toggleColorMode } = useColorMode();
@@ -12,8 +19,6 @@ export default function Home() {
       <Header />
       <LiveMatch />
       <TodayMatch />
-
-      <Button onPress={toggleColorMode}>Toggle</Button>
     </Box>
   );
 }
