@@ -11,7 +11,6 @@ import { Header, LiveMatch, TodayMatch } from "./sections";
 import { useDrawner } from "@hooks/Drawner.hook";
 
 export default function Home() {
-  const { toggleColorMode } = useColorMode();
   const background = useColorModeValue(GLOBAL.background, GLOBAL.grayscale_100);
 
   return (
