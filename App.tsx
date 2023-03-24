@@ -18,6 +18,7 @@ import Home from "./src/screens/Home";
 import { BASETHEME } from "@themes/index";
 import { DrawnerMenu } from "@components/DrawnerMenu";
 import { DrawnerProvider } from "@hooks/Drawner.hook";
+import SignUp from "@screens/SignUp";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -40,7 +41,7 @@ export default function App() {
         </Box>
       ) : (
         <DrawnerProvider>
-          <Home />
+          <SignUp />
         </DrawnerProvider>
       )}
     </NativeBaseProvider>
